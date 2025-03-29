@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1dvnlldth2jy"]
+
+[ext_resource type="Script" path="res://Scenes/load_area.gd" id="1_53sbh"]
+[ext_resource type="FontFile" uid="uid://dj1dlxpxmvue1" path="res://Fonts/Outfit-Regular.ttf" id="2_7g8so"]
+[ext_resource type="FontFile" uid="uid://d3gl7nh71r4qi" path="res://Fonts/Outfit-SemiBold.ttf" id="3_fe12q"]
+[ext_resource type="FontFile" uid="uid://cqld8nn3fnlbg" path="res://Fonts/Outfit-Thin.ttf" id="3_syp1m"]
+[ext_resource type="FontFile" uid="uid://7x473dpkhrre" path="res://Fonts/Outfit-ExtraLight.ttf" id="4_xvavk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ccras"]
+
+[node name="LoadArea" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_53sbh")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(859, 430)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0646966, 0.0646965, 0.0646965, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+offset_left = 42.0
+offset_top = 18.0
+offset_right = 511.0
+offset_bottom = 144.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.329412)
+theme_override_fonts/font = ExtResource("2_7g8so")
+theme_override_font_sizes/font_size = 100
+text = "Collidegen"
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 1
+offset_left = 42.0
+offset_top = 159.0
+offset_right = 784.0
+offset_bottom = 596.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.329412)
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("3_syp1m")
+theme_override_font_sizes/font_size = 45
+text = "A collision box generator for Godot 4.
+
+Write instructions on .tscn format here or put some other decorative text and lalalalalalalalalalalalala. I don't know what to put here so I'm going to fill the rest of this up. Thanks!"
+autowrap_mode = 2
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -35.0
+offset_right = 752.0
+offset_bottom = 22.0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.329412)
+theme_override_fonts/font = ExtResource("4_xvavk")
+theme_override_font_sizes/font_size = 20
+text = "Updated 3/29/2025 | v0.1.0 | Have a nice day and enjoy Collidegen!"
+autowrap_mode = 2
+
+[node name="Separator" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 150.0
+offset_right = 770.0
+offset_bottom = 154.0
+
+[node name="OpenDialog" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -323.0
+offset_top = -307.0
+offset_right = -18.0
+offset_bottom = 308.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_fe12q")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ccras")
+text = "Open .tscn file"
+autowrap_mode = 3
+
+[connection signal="button_down" from="OpenDialog" to="." method="_on_open_dialog_button_down"]
